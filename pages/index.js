@@ -1,12 +1,13 @@
-
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Global.module.css";
 import { useEffect, useRef, useState } from "react";
 import NET from "vanta/dist/vanta.net.min";
 import * as THREE from "three";
-import Header from '../components/Header/index'
-import Content from '../components/Content/index'
+import Home from './home'
+import Work from './work'
+import About from './about'
 
-export default function Home() {
+
+export default function App() {
   const [vantaEffect, setVantaEffect] = useState(0);
   const vantaRef = useRef(null);
   useEffect(() => {
@@ -22,15 +23,34 @@ export default function Home() {
       );
     }
     return () => {
-      if (vantaEffect) vantaEffect.destory();
+      if (vantaEffect) vantaEffect.destroy();
     };
   }, [vantaEffect]);
   return (
-    <div className={styles.container}>
-      <main className={styles.main} ref={vantaRef}>
-      <Header />
-      <Content />
-      </main>
+    <div className={styles.canvas} ref={vantaRef}>
+    
+      <div className={styles.container}>
+
+      <div className={styles.header}>
+        
+        <a href="#home">HOME</a>
+        <a href="#work" >WORK</a>
+        <a href="#about">ABOUT</a>
+        
+      </div>
+
+        <div className={styles.main}>
+      
+        <a id="home"><Home /></a>
+        
+        <a id="work"><Work /></a>
+
+        <a id="about"><About /></a>
+
+        
+      
+        </div>
+      </div>
     </div>
   );
 }

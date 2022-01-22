@@ -5,10 +5,10 @@
 }
 .content {
     
-    margin-top: 300px;
+    margin-top: 40px;
     width: 80%;
     height: 200px;
-    background:rgba(235, 231, 231, 0.1) ;
+    background:none ;
     display: flex;
     justify-content: center;
   }
